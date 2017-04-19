@@ -1,4 +1,4 @@
-const requestIsHttps = (req) => req.headers['x-forwarded-proto'] === 'https';
+const requestIsHttps = (req) => req.headers['x-forwarded-proto'] !== 'http';
 
 function redirectToHttps(req, res, next) {
   if (!requestIsHttps(req)) {

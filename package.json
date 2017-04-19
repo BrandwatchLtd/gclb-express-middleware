@@ -1,6 +1,6 @@
 {
   "name": "gclb-express-middleware",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Handle integrations with Google Cloud Load Balancer",
   "main": "src/index.js",
   "author": "Andy Hume andyhu@brandwatch.com",

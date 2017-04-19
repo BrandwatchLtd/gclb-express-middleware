@@ -29,6 +29,11 @@ describe('gclb-express-middleware', () => {
       assert(next.called, true);
     });
 
+    it('should call next when no x-forwarded-proto header', () => {
+      gclb.redirectToHttps(req, res, next);
+      assert(next.called, true);
+    });
+
     it('should call res.redirect with correct params when http', () => {
       req.headers['x-forwarded-proto'] = 'http';
       gclb.redirectToHttps(req, res, next);
@@ -40,6 +45,11 @@ describe('gclb-express-middleware', () => {
     it('should call next when https', () => {
       req.headers['x-forwarded-proto'] = 'https';
       gclb.blockNonHttps(req, res, next);
+      assert(next.called, true);
+    });
+
+    it('should call next when no x-forwarded-proto header', () => {
+      gclb.redirectToHttps(req, res, next);
       assert(next.called, true);
     });
 
